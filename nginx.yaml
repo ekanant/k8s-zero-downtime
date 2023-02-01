@@ -6,7 +6,7 @@ spec:
   selector:
     matchLabels:
       app: nginx-web-app
-  replicas: 2 # tells deployment to run 2 pods matching the template
+  replicas: 10 # Start with 10 pods and reduce to 2 pods and check is health.sh is ready
   template:
     metadata:
       labels:

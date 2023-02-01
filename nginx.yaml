@@ -12,11 +12,16 @@ spec:
       labels:
         app: nginx-web-app
     spec:
+      terminationGracePeriodSeconds: 30
       containers:
       - name: nginx
         image: nginx:1.23.3-alpine
         ports:
         - containerPort: 80
+        lifecycle:
+          preStop:
+            exec:
+              command: ["/bin/sh","-c","sleep 10"]
         resources:
           limits:
             cpu: 1000m 
